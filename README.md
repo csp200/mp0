@@ -1,4 +1,4 @@
-# CS 340 MP0: Logistics
+# CSP 200 MP0: Logistics
 
 ## Goals
 
@@ -43,7 +43,7 @@ listing. The GitHub web interface allows you to edit files directly in the
 browser, but we _strongly recommend_ that you do not do so. Instead, you will
 _clone_ the repository to the class server and work on it there.
 
-## 4. Registering a public key with GitHub
+## 3. Registering a public key with GitHub
 
 In order to authenticate with GitHub and access your repository, you'll first
 need to create a _public encryption key_ on the server and register it with
@@ -100,29 +100,23 @@ Finally, you're ready to clone the repository. On the server, type the following
 command, replacing USERNAME with your own GitHub username (note, _not_ your IIT
 username)!
 
-    git clone git@github.com:csp200/mp0-USERNAME.git
+    git clone git@github.com:csp200/mp00-USERNAME.git
 
 This should clone the contents of your repository into a directory with a
 matching name. The command may prompt you to verify the authenticity of the
 GitHub service -- if so, just type `yes` and hit enter. When successful, you
 should see output like the following.
 
-    Cloning into 'mp0-USERNAME'...
-    The authenticity of host 'github.com (140.82.112.3)' can't be established.
-    ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
-    This key is not known by any other names.
-    Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-    Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
-    remote: Enumerating objects: 29, done.
-    remote: Counting objects: 100% (29/29), done.
-    remote: Compressing objects: 100% (23/23), done.
-    remote: Total 29 (delta 9), reused 25 (delta 5), pack-reused 0 (from 0)
-    Receiving objects: 100% (29/29), 1.98 MiB | 6.47 MiB/s, done.
-    Resolving deltas: 100% (9/9), done.
+    Cloning into 'mp00-USERNAME'...
+    remote: Enumerating objects: 5, done.
+    remote: Counting objects: 100% (5/5), done.
+    remote: Compressing objects: 100% (5/5), done.
+    remote: Total 5 (delta 0), reused 4 (delta 0), pack-reused 0 (from 0)
+    Receiving objects: 100% (5/5), 5.62 KiB | 5.63 MiB/s, done.
 
-You should now have a directory named "mp0-USERNAME" where you ran the
+You should now have a directory named "mp00-USERNAME" where you ran the
 `git clone` command, and within it you will find all the files provided for this
-machine problem.
+machine problem. `cd` into that directory now.
 
 ## 5. Working on MPs
 
@@ -166,10 +160,6 @@ been added to and are now being tracked by the repository:
      create mode 100644 bar
      create mode 100644 foo
 
-You can now run the command `git log` to view a record of commits to the
-repository -- you will see the initial commit and the one you just made. (You
-can hit `q` to exit the log pager.)
-
 ### 5.2. Completing the MP Report
 
 Every MP will come with a file named "REPORT.md", which is the template for your
@@ -179,12 +169,33 @@ the self-evaluation checklist that apply to your submission, then edit the
 
 Edit the report file now. When you are done and have saved your changes, run
 `git add REPORT.md` to stage it, then `git commit -m "Editing report"` to commit
-the change. Check `git log` to see that the commit was recorded.
+the change.
 
-### 5.3. Committing and Submitting
+You can now run the command `git log` to view a record of commits to the
+repository. It should look like this:
+
+    commit 1665fe9a5c41dc4cb15e57e58fbff4983f01995a (HEAD -> main)
+    Author: Michael Lee <lee@iit.edu>
+    Date:   Tue Jan 28 16:36:15 2025 +0000
+
+        Editing report
+
+    commit 1472974c7a1fc6f206407bef336c0b377948a971
+    Author: Michael Lee <lee@iit.edu>
+    Date:   Tue Jan 28 16:35:25 2025 +0000
+
+        Adding required files
+
+    commit aa8d346bf759943643c0c93b2cbdf18893afd716 (origin/main, origin/HEAD)
+    Author: github-classroom[bot] <66690702+github-classroom[bot]@users.noreply.github.com>
+    Date:   Tue Jan 28 16:31:59 2025 +0000
+
+        Initial commit
+
+### 5.3. Submitting your work
 
 Committing your changes updates your local repository (on the server), but in
-order to submit your work, you must also **push** your changes to the repository
+order to submit your work, you must also _push_ your changes to the repository
 maintained by GitHub.
 
 To push your work, run the following command:
@@ -193,11 +204,20 @@ To push your work, run the following command:
 
 You should see output like the following:
 
+    Enumerating objects: 8, done.
+    Counting objects: 100% (8/8), done.
+    Compressing objects: 100% (5/5), done.
+    Writing objects: 100% (6/6), 602 bytes | 301.00 KiB/s, done.
+    Total 6 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+    remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+    To github.com:csp200/mp00-michaelee.git
+       aa8d346..1665fe9  main -> main
+
 ### 5.4. Confirming Your Submission
 
 After you have pushed your changes to GitHub, you should go to the repository
 homepage on GitHub and confirm that your changes are visible there. You should
-see the updated `REPORT.md` file with the information you added, and other
+see the updated "REPORT.md" file with the information you added, and other
 changes you made in the commit history.
 
 Once you have confirmed that your changes are visible on GitHub, you have
@@ -210,8 +230,9 @@ that was submitted before the deadline.
 Here's a recap of the steps you need to follow to complete an MP:
 
 1. Accept the MP invitation link
-2. Clone the repository on the server
+2. Clone the repository
 3. View the "README.md" file for MP details
-4. Add/Edit files in the repository to implement required functionality
+4. Add/Edit files to implement required functionality
 5. Edit the "REPORT.md" file to include all requisite information
-6. Commit and push your changes to GitHub
+6. Stage and commit your changes (repeat steps 4-6 as needed)
+7. Push your commits to GitHub
